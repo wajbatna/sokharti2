@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #ff6b35;
+  --color-brand-dark: #e4551f;
+  --color-brand-soft: #fff1eb;
+  --color-ink: #111827;
+  --color-ink-soft: #6b7280;
+  --color-canvas: #f7f7f7;
+  --color-success: #22c55e;
+  --font-sans: "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  --radius-xl2: 1.25rem;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d8 transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-x {
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-x > * {
+  scroll-snap-align: start;
+}
+
+@keyframes skh-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes skh-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes skh-sheet {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes skh-drawer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes skh-shimmer {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes skh-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(255, 107, 53, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+  }
+}
+
+.animate-fade-up {
+  animation: skh-fade-up 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-fade {
+  animation: skh-fade 0.25s ease both;
+}
+.animate-sheet {
+  animation: skh-sheet 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-drawer {
+  animation: skh-drawer 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.pulse-ring {
+  animation: skh-pulse-ring 2s infinite;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: #ececef;
+}
+.skeleton::after {
+  position: absolute;
+  inset: 0;
+  transform: translateX(100%);
+  animation: skh-shimmer 1.4s infinite;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.65) 60%, rgba(255, 255, 255, 0));
+  content: "";
+}
+
+.map-grid {
+  background-image:
+    linear-gradient(rgba(17, 24, 39, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
